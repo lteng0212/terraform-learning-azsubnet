@@ -16,8 +16,14 @@ pipeline {
         }
         stage('terraform') {
             steps {
-                sh 'chmod +x terraformmw'
-                sh './terraformmw apply -auto-approve -no-color'
+                withCredentials([azureServicePrincipal(credentialsId: 'testAzure',
+                                    subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
+                                    clientIdVariable: 'ARM_CLIENT_ID',
+                                    clientSecretVariable: 'ARM_CLIENT_SECRET',
+                                    tenantIdVariable: 'ARM_TENANT_ID')]) {
+                    sh 'chmod +x terraformmw'
+                    sh './terraformmw apply -auto-approve -no-color'
+                }
             }
         }
     }

@@ -1,8 +1,3 @@
-output "jenkins_terraform" {
-  value = " test running Terraform from Jenkins"
-}
-
-/*
 provider "azurerm" {
   features {}
 }
@@ -22,4 +17,7 @@ resource "azurerm_virtual_network" "vnet" {
   location            = "westus2"
   resource_group_name = azurerm_resource_group.rg.name
 }
-*/
+
+output "jenkins_terraform" {
+  value = azurerm_virtual_network.vnet.name
+}
