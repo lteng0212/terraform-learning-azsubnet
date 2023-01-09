@@ -21,4 +21,7 @@ export PATH=$CUSTOMBIN:$PATH
 
 $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
 
+# init terraform
+terraform init
+
 terraform $*
