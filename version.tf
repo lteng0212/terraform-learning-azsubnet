@@ -8,6 +8,7 @@ terraform {
   }
 
   backend "azurerm" {
+    resource_group_name  = "terraformadmin"
     storage_account_name = "lterraformstorage"
     container_name       = "terraform-state"
     key                  = "ltazsub.tfstate"
