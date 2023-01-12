@@ -23,7 +23,7 @@ $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
 
 # init terraform
 echo "terraform init locally"
-terraform init  -backend-config="storage_account_name=lterraformstorage" -backend-config="container_name=terraform-state" -backend-config="key=ltazsub.tfstate"
+terraform init 
 
 echo "terraform cmd locally"
 terraform $*
