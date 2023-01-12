@@ -16,6 +16,9 @@ pipeline {
         }
         stage('terraform') {
             steps {
+                environment { //拉取微软的远端存储密钥
+                    ARM_ACCESS_KEY = credentials('azurestoragekey') 
+                }
                 withCredentials([azureServicePrincipal(credentialsId: 'testAzure',
                                     subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
                                     clientIdVariable: 'ARM_CLIENT_ID',
