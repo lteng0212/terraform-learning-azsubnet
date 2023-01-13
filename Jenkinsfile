@@ -5,7 +5,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'TEST_TF_SPACE', defaultValue: 'staging', description: 'terraform workspace')
+        string(name:'TEST_TF_SPACE', defaultValue:'staging', description:'terraform workspace')
     }
 
     stages {
@@ -31,7 +31,7 @@ pipeline {
                                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                                     tenantIdVariable: 'ARM_TENANT_ID')]) {
                     sh 'export ARM_ACCESS_KEY=$ARM_ACCESS_CREDS_PSW'
-                    sh 'export TEST_TF_SPACE=${params.TEST_TF_SPACE}'
+                    sh 'export TEST_TF_SPACE=$params.TEST_TF_SPACE'
                     sh 'chmod +x terraformmw'
                     sh './terraformmw apply -auto-approve -no-color'
                 }
