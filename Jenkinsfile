@@ -32,7 +32,9 @@ pipeline {
                                     tenantIdVariable: 'ARM_TENANT_ID')]) {
                     sh 'export ARM_ACCESS_KEY=$ARM_ACCESS_CREDS_PSW'             
                     sh 'chmod +x terraformmw'
-                    sh './terraformmw apply -auto-approve -no-color -var-file="./var/$params.TEST_TF_SPACE"'
+                    sh './terraformmw'
+                    sh 'terraform init -backend-config="./var/${params.TEST_TF_SPACE}"'
+                    sh 'terraform apply -auto-approve -no-color -var-file="./var/${params.TEST_TF_SPACE}"'
                 }
             }
         }
