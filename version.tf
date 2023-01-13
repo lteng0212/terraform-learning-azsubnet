@@ -11,7 +11,7 @@ terraform {
     resource_group_name  = "terraformadmin"
     storage_account_name = "lterraformstorage"
     container_name       = "terraform-state"
-    key                  = "ltazsub.tfstate"
+    key                  = var.state_name
   }
 
   required_version = ">= 1.1.0"

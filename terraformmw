@@ -25,5 +25,10 @@ $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
 echo "terraform init locally"
 terraform init 
 
+# init terraform
+terraform workspace new $TEST_TF_SPACE
+
+terraform workspace select $TEST_TF_SPACE
+
 echo "terraform cmd locally"
 terraform $*
