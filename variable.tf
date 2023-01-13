@@ -1,31 +1,20 @@
 variable "private_subnet_cidrs" {
   type = list(string)
-  default = {
-    staging    = ["10.1.0.0/16"]
-    production = ["10.2.0.0/16"]
-  }
+  default =  ["10.0.0.0/16"]
 }
 
 variable "private_subnet_name" {
   type = string
-  default = {
-    staging    = "myTFStageVnet"
-    production = "myTFProdVnet"
-  }
+  default = "myTFVnet"
+
 }
 
 variable "rg_name" {
   type = string
-  default = {
-    staging    = "myTFStageResourceGroup"
-    production = "myTFProdResourceGroup"
-  }
+  default  = "myTFResourceGroup"
 }
 
 variable "state_name" {
   type = string
-  default = {
-    staging    = "ltazstagesub.tfstate"
-    production = "ltazprodsub.tfstate"
-  }
+  default = "ltazsub.tfstate"
 }
