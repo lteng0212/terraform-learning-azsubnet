@@ -1,5 +1,5 @@
 variable "private_subnet_cidrs" {
-  type = string
+  type = list(string)
   default = {
     staging    = ["10.1.0.0/16"]
     production = ["10.2.0.0/16"]
