@@ -33,8 +33,8 @@ pipeline {
                     sh 'export ARM_ACCESS_KEY=$ARM_ACCESS_CREDS_PSW'             
                     sh 'chmod +x terraformmw'
                     sh './terraformmw'
-                    sh 'terraform init -backend-config="./var/${params.TEST_TF_SPACE}"'
-                    sh 'terraform apply -auto-approve -no-color -var-file="./var/${params.TEST_TF_SPACE}"'
+                    bash 'terraform init -backend-config="./var/${params.TEST_TF_SPACE}"'
+                    bash 'terraform apply -auto-approve -no-color -var-file="./var/${params.TEST_TF_SPACE}"'
                 }
             }
         }
