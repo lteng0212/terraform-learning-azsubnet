@@ -30,11 +30,10 @@ pipeline {
                                     clientIdVariable: 'ARM_CLIENT_ID',
                                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                                     tenantIdVariable: 'ARM_TENANT_ID')]) {
-                    sh 'export ARM_ACCESS_KEY=$ARM_ACCESS_CREDS_PSW'             
+                    sh 'export ARM_ACCESS_KEY=$ARM_ACCESS_CREDS_PSW' 
+                    sh 'export TF_SPACE=${params.TEST_TF_SPACE}'            
                     sh 'chmod +x terraformmw'
                     sh './terraformmw'
-                    bash 'terraform init -backend-config="./var/${params.TEST_TF_SPACE}"'
-                    bash 'terraform apply -auto-approve -no-color -var-file="./var/${params.TEST_TF_SPACE}"'
                 }
             }
         }

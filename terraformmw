@@ -20,3 +20,7 @@ CUSTOMBIN=$(pwd)/.bin
 export PATH=$CUSTOMBIN:$PATH
 
 $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
+
+terraform init -backend-config="./var/$TF_SPACE"
+
+terraform apply -auto-approve -no-color -var-file="./var/$TF_SPACE"
