@@ -21,6 +21,8 @@ export PATH=$CUSTOMBIN:$PATH
 
 $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
 
+echo "terraform init $TF_SPACE .."
 terraform init -backend-config="./var/$TF_SPACE"
 
+echo "terraform apply $TF_SPACE .."
 terraform apply -auto-approve -no-color -var-file="./var/$TF_SPACE"
