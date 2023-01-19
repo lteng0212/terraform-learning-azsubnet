@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
+  name     = var.rg_name
   location = "westus2"
    tags     = {
         "Environment" = "Terraform Getting Started"
@@ -12,8 +12,8 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "myTFVnet"
-  address_space       = ["10.0.0.0/16"]
+  name                = var.private_subnet_name
+  address_space       = var.private_subnet_cidrs
   location            = "westus2"
   resource_group_name = azurerm_resource_group.rg.name
 }
