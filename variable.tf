@@ -6,15 +6,9 @@ variable "private_subnet_cidrs" {
 variable "private_subnet_name" {
   type = string
   default = "myTFVnet"
-
 }
 
 variable "rg_name" {
   type = string
   default  = "myTFResourceGroup"
-}
-
-variable "state_name" {
-  type = string
-  default = "ltazsub.tfstate"
 }
